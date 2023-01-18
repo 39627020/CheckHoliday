@@ -3,28 +3,28 @@ package com.jzd1997.checkholiday.domain;
 import java.util.Map;
 
 public class Result {
-    private boolean isOk;
+    private int code;
     private String msg;
     private Map data;
 
     public Result(){
-        this.isOk = false;
+        this.code = 0;
         this.msg = null;
         this.data = null;
     }
 
-    public Result(Boolean isOk,String msg,Map data){
-        this.isOk = isOk;
+    public Result(int code,String msg,Map data){
+        this.code = code;
         this.msg = msg;
         this.data = data;
     }
 
-    public boolean getIsOk() {
-        return isOk;
+    public int getCode() {
+        return code;
     }
 
-    public void setIsOk(boolean isOk) {
-        this.isOk = isOk;
+    public void setCode(int code) {
+        this.code = code;
     }
 
     public String getMsg() {

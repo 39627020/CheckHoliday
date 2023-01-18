@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,12 +22,11 @@ public class MainController {
         Map data = new HashMap();
         try{
             long rows = holidayService.insertYear(year);
-            res.setIsOk(true);
             res.setMsg(String.format("插入%d条日历数据",rows));
             data.put("Count",rows);
             res.setData(data);
         }catch (Exception e){
-            res.setIsOk(false);
+            res.setCode(1);
             res.setMsg("异常错误，请联系管理员");
         }
         return res;
@@ -40,12 +38,11 @@ public class MainController {
         Map data = new HashMap();
         try{
             List<Holiday> list = holidayService.query(from,to);
-            res.setIsOk(true);
             res.setMsg(String.format("查询到%d条日历数据",list==null?0:list.size()));
             data.put("list",list);
             res.setData(data);
         }catch (Exception e){
-            res.setIsOk(false);
+            res.setCode(1);
             res.setMsg("异常错误，请联系管理员");
         }
         return res;
