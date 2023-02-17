@@ -1,14 +1,14 @@
 package com.jzd1997.checkholiday.service;
 
-import com.jzd1997.checkholiday.dao.IHolidayDao;
 import com.jzd1997.checkholiday.domain.Holiday;
 import com.jzd1997.checkholiday.domain.Weekday;
+import com.jzd1997.checkholiday.repository.HolidayRepository;
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.text.SimpleDateFormat;
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -17,7 +17,7 @@ import java.util.List;
 @Service
 public class HolidayServiceImpl implements IHolidayService{
     @Autowired
-    private IHolidayDao dao;
+    private HolidayRepository repository;
     private List<Holiday> special;
     public HolidayServiceImpl(){
         special = new ArrayList<>();
@@ -64,6 +64,7 @@ public class HolidayServiceImpl implements IHolidayService{
     }
 
     @Override
+    @Transactional
     public long insertYear(String year){
         try{
             List<Holiday> days = new ArrayList<>();
@@ -90,14 +91,16 @@ public class HolidayServiceImpl implements IHolidayService{
                 days.add(holiday);
                 dt = DateUtils.addDays(dt,1);
             }
-            return dao.insertYear(year,days);
+            repository.saveAll(days);
+            return days.size();
         }catch (Exception e){
+            e.printStackTrace();
             return 0;
         }
     }
 
     @Override
     public List<Holiday> query(String from, String to) {
-        return dao.query(from,to);
+        return repository.query(from,to);
     }
 }

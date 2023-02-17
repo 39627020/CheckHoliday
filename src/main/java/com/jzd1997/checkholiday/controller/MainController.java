@@ -42,6 +42,7 @@ public class MainController {
             data.put("list",list);
             res.setData(data);
         }catch (Exception e){
+            e.printStackTrace();
             res.setCode(1);
             res.setMsg("异常错误，请联系管理员");
         }
