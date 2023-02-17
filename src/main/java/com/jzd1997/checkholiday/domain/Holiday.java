@@ -23,21 +23,6 @@ public class Holiday {
     @Column(name = "fd_week")
     private int fd_week = 0;
 
-    @Column(name = "fd_deleted")
-    private int fd_deleted = 0;
-
-    @Column(name = "fd_create_date")
-    private Date fd_create_date;
-
-    @Column(name = "fd_update_date")
-    private Date fd_update_date;
-
-    @Column(name = "fd_reserved1")
-    private String fd_reserved1;
-
-    @Column(name = "fd_reserved2")
-    private String fd_reserved2;
-
     public Holiday(){
 
     }
@@ -88,46 +73,6 @@ public class Holiday {
         this.fd_week = fd_week;
     }
 
-    public int getFd_deleted() {
-        return fd_deleted;
-    }
-
-    public void setFd_deleted(int fd_deleted) {
-        this.fd_deleted = fd_deleted;
-    }
-
-    public Date getFd_create_date() {
-        return fd_create_date;
-    }
-
-    public void setFd_create_date(Date fd_create_date) {
-        this.fd_create_date = fd_create_date;
-    }
-
-    public Date getFd_update_date() {
-        return fd_update_date;
-    }
-
-    public void setFd_update_date(Date fd_update_date) {
-        this.fd_update_date = fd_update_date;
-    }
-
-    public String getFd_reserved1() {
-        return fd_reserved1;
-    }
-
-    public void setFd_reserved1(String fd_reserved1) {
-        this.fd_reserved1 = fd_reserved1;
-    }
-
-    public String getFd_reserved2() {
-        return fd_reserved2;
-    }
-
-    public void setFd_reserved2(String fd_reserved2) {
-        this.fd_reserved2 = fd_reserved2;
-    }
-
     @Override
     public String toString() {
         return "Holiday{" +
@@ -136,11 +81,6 @@ public class Holiday {
                 ", fd_name='" + fd_name + '\'' +
                 ", fd_type=" + fd_type +
                 ", fd_week=" + fd_week +
-                ", fd_deleted=" + fd_deleted +
-                ", fd_create_date=" + fd_create_date +
-                ", fd_update_date=" + fd_update_date +
-                ", fd_reserved1='" + fd_reserved1 + '\'' +
-                ", fd_reserved2='" + fd_reserved2 + '\'' +
                 '}';
     }
 }
