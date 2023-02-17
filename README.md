@@ -17,8 +17,8 @@ Springboot + JPA
 1.  代码运行后，访问http://localhost:8080/create?year=2023可以直接创建2023年一整年日历
 ![输入图片说明](https://foruda.gitee.com/images/1673865569027329590/b9600855_609629.png "屏幕截图")
 
-2.  访问http://localhost:8080/query?from=20230101&to=20231231,可以访问2023年所有日历
-![输入图片说明](https://foruda.gitee.com/images/1673865600765894435/747a610e_609629.png "屏幕截图")
+2.  访问http://localhost:8080/query?from=2023-01-01&to=2023-12-31,可以访问2023年所有日历
+![输入图片说明](%E6%88%AA%E5%B1%8F2023-02-17%2009.55.01.png)
 
 #### 参与贡献
 
