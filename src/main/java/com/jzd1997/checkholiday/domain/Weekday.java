@@ -1,7 +1,13 @@
 package com.jzd1997.checkholiday.domain;
 
 public enum Weekday {
-    MON("周一",1),TUES("周二",2),WEN("周三",3),THUR("周四",4),FRI("周五",5),SAT("周六",6),SUN("周日",7);
+    MON("周一",1),
+    TUES("周二",2),
+    WEN("周三",3),
+    THUR("周四",4),
+    FRI("周五",5),
+    SAT("周六",6),
+    SUN("周日",7);
     private String name;
     private int index;
     Weekday(String name, int index) {

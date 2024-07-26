@@ -1,24 +1,28 @@
 package com.jzd1997.checkholiday.domain;
 
-import java.util.Map;
-
 public class Result {
     private int code;
     private String msg;
-    private Map data;
+    private Object data;
 
-    public Result(){
-        this.code = 0;
-        this.msg = null;
-        this.data = null;
-    }
 
-    public Result(int code,String msg,Map data){
+    private Result(int code,String msg,Object data){
         this.code = code;
         this.msg = msg;
         this.data = data;
     }
 
+    public static Result success(){
+        return new Result(200,"调用成功",null);
+    }
+
+    public static Result success(String msg){
+        return new Result(200,msg,null);
+    }
+
+    public static Result success(String msg,Object data){
+        return new Result(200,msg,data);
+    }
     public int getCode() {
         return code;
     }
@@ -35,11 +39,11 @@ public class Result {
         this.msg = msg;
     }
 
-    public Map getData() {
+    public Object getData() {
         return data;
     }
 
-    public void setData(Map data) {
+    public void setData(Object data) {
         this.data = data;
     }
 }
