@@ -1,5 +1,7 @@
 package com.jzd1997.checkholiday.domain;
 
+import com.jzd1997.checkholiday.exception.CustomException;
+
 public class Result {
     private int code;
     private String msg;
@@ -23,6 +25,14 @@ public class Result {
     public static Result success(String msg,Object data){
         return new Result(200,msg,data);
     }
+
+    public static Result error(CustomException e){
+        return new Result(e.getCode(),e.getMessage(),null);
+    }
+    public static Result error(CustomException e,String msg){
+        return new Result(e.getCode(),msg,null);
+    }
+
     public int getCode() {
         return code;
     }
