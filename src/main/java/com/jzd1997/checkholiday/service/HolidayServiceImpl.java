@@ -69,6 +69,7 @@ public class HolidayServiceImpl implements IHolidayService{
     @Transactional
     public long insertYear(String year){
         try{
+            repository.deleteByYear(year);
             List<Holiday> days = new ArrayList<>();
             Date dt = DateUtils.parseDate(year + "-01-01", "yyyy-MM-dd");
 
